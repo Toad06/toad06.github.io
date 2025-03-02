@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" />
+	<title>JamaJama</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		body {
+			background-color: #000;
+			color: #FFF;
+			font: 14px Arial, sans-serif;
+		}
+		#gameSWF, #introSWF {
+			width: 600px;
+			height: 600px;
+			position: absolute;
+			z-index: 0;
+		}
+		#introSWF {
+			z-index: 1;
+		}
+		/* Notification */
+		#notification {
+			width: 300px;
+			height: 100px;
+			position: absolute;
+			display: none;
+			z-index: 2;
+			padding: 0px 10px;
+			background-color: rgba(0, 0, 0, 0.5);
+			border-bottom: 1px solid #000;
+			border-right: 1px solid #000;
+			border-bottom-right-radius: 10px;
+			cursor: default;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+		#notification .close {
+			position: absolute;
+			left: 280px;
+			font-size: 26px;
+			color: #FF0000;
+			cursor: pointer;
+		}
+		#notification h1 {
+			margin: 8px 0 6px;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		#notification input {
+			display: block;
+			width: 250px;
+			background-color: #FFF;
+			color: #000;
+			outline: none;
+			cursor: text;
+		}
+	</style>
+</head>
+<body>
+	<div id="gameSWF"></div>
+	<div id="introSWF"></div>
+	<div id="notification">
+		<p class="close" title="Fermer">✖</p>
+		<h1>Information</h1>
+		<p class="text"></p>
+	</div>
+	<script>
+		(function() {
+			var setSWF = function(elementId, src, flashvars, wmode) {
+				document.getElementById(elementId).innerHTML = '<embed ' +
+					'type="application/x-shockwave-flash" ' +
+					'width="100%" height="100%" ' +
+					'base="data/" ' +
+					'src="' + src + '" ' +
+					'flashvars="' + flashvars + '" ' +
+					'wmode="' + wmode + '" ' +
+					'menu="false" ' +
+				'/>';
+			};
+			var version = String(Date.now());
+			setSWF("introSWF", "data/intro.swf?__v=" + version, "", "transparent");
+			// Fonction appelée depuis "intro.swf".
+			window.setGameSWF = function() {
+				var pseudo = window.location.href.split("?pseudo=")[1] || "Joueur";
+				pseudo = encodeURIComponent(decodeURIComponent(pseudo)); // dans le cas où certains navigateurs feraient les choses différemment
+				setSWF("gameSWF", "data/game.swf?__v=" + version, "pseudo=" + pseudo, "window");
+			};
+		})();
+
+		document.documentElement.oncontextmenu = function(event) {
+			return event.target && event.target.nodeName === "INPUT";
+		};
+		document.querySelector("#notification p.close").onclick = function() {
+			this.parentNode.style.display = "none";
+		};
+
+		// Fonction appelée depuis "intro.swf".
+		function removeIntroSWF() {
+			window.setGameSWF = undefined;
+			document.body.removeChild(document.getElementById("introSWF"));
+		}
+
+		// Fonction appelée depuis "game.swf".
+		function showNotification(data) {
+			var notif = document.getElementById("notification");
+			var p = notif.querySelector("p.text");
+			var text = data;
+			var levelData = null;
+			if(text instanceof Array) {
+				text = data[0];
+				levelData = data[1];
+			}
+			p.textContent = text;
+			if(levelData !== null) {
+				var input = document.createElement("input");
+				input.type = "text";
+				input.value = levelData;
+				input.readOnly = true;
+				input.onfocus = function() { this.select(); };
+				p.appendChild(input);
+			}
+			notif.style.display = "block";
+		}
+	</script>
+</body>
+</html>

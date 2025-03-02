@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" />
+	<title>JamaJama</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		body {
+			background-color: #000;
+			color: #FFF;
+			font: 14px Arial, sans-serif;
+			overflow: hidden;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+		}
+		iframe {
+			overflow: hidden;
+		}
+		input {
+			width: 200px;
+		}
+		#content {
+			margin-top: 20px;
+			text-align: center;
+		}
+	</style>
+	<script>
+		window.RufflePlayer = {
+			config: {
+				autoplay: "on",
+				unmuteOverlay: "hidden"
+			}
+		};
+	</script>
+	<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+</head>
+<body>
+	<div id="content"></div>
+	<script>
+		function setContent() {
+			var content = document.getElementById("content");
+			var pseudo = document.getElementById("pseudo");
+			var p = "Joueur";
+			if(pseudo === null) {
+				try {
+					p = localStorage.getItem("fp_jama") || p;
+				} catch(e) {}
+			} else {
+				if(pseudo.value.length > 0) {
+					p = pseudo.value;
+					try {
+						localStorage.setItem("fp_jama", p);
+					} catch(e) {}
+				}
+			}
+			content.innerHTML = "";
+			var iframe = document.createElement("iframe");
+			iframe.setAttribute("src", "game.html?pseudo=" + p);
+			iframe.setAttribute("width", "600");
+			iframe.setAttribute("height", "600");
+			iframe.setAttribute("frameborder", "0");
+			iframe.setAttribute("scrolling", "no");
+			content.appendChild(iframe);
+			content.appendChild(document.createElement("br"));
+			content.appendChild(document.createElement("br"));
+			var span = document.createElement("span");
+			span.innerHTML = 'Pseudo : <input id="pseudo" type="text" value="" onchange="setContent();" />';
+			content.appendChild(span);
+			document.getElementById("pseudo").value = p;
+		}
+		setContent();
+	</script>
+</body>
+</html>
