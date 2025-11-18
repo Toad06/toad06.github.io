@@ -20,8 +20,9 @@
 	<!-- Aide principale. -->
 	<section name="index">
 		<p class="title">Bienvenue dans JamaJama !</p>
-		<p>Au sein de niveaux essentiellement créés par les joueurs, vous devez aider Tiki le petit fantôme à se frayer un chemin jusqu'à la sortie tout en évitant les embûches.</p>
-		<p>Pour apprendre les bases du jeu, la série <i>Premiers pas</i> du mode <i>Aventure</i> est conseillée.</p>
+		<p><img src="images/help_illuspictos1_upgraded.jpg" width="114" height="118" />Au sein de niveaux essentiellement créés par les joueurs, vous devez aider Tiki le petit fantôme à se frayer un chemin jusqu'à la sortie tout en évitant les embûches.</p>
+		<p>Pour apprendre les bases du jeu, la série <i>Premiers pas</i> du mode <i>Aventure</i> est conseillée.<img src="images/help_illuspictos2_upgraded.jpg" width="290" height="30" /></p>
+		<br /><br /><br />
 		<p>Plusieurs sections composent cette aide, n'hésitez pas à les consulter par le biais des boutons ci-dessous.</p>
 	</section>
 	<section name="index_controls">
@@ -148,7 +149,7 @@
 		<ul>
 			<li><b>Le bouton « ? » :</b> Il fournit une aide contextuelle sur l'élément.</li>
 			<li><b>Le bouton « → » :</b> Il permet de changer les caractéristiques de l'élément (uniquement pour le fruit et la bombe).</li>
-			<li><b>Le bouton « Π » :</b> Il fait pivoter l'élément (uniquement pour Tiki, la sortie, les voies à sens unique, les aimants, Kohl et le lurker).</li>
+			<li><b>Le bouton « Π » :</b> Il fait pivoter l'élément (uniquement pour Tiki, la trappe de sortie, les voies à sens unique, les aimants, Kohl et le lurker).</li>
 		</ul>
 		<p class="subtitle">Du test à la validation</p>
 		<ul>
@@ -167,6 +168,11 @@
 			<li><b>Touches de défilement ↑ et ↓ :</b> Aller à l'élément suivant ou précédent de la liste.</li>
 			<li><b>Touches directionnelles :</b> Faire pointer l'élément dans la direction indiquée (ou Haut et Bas pour changer les caractéristiques de l'élément - uniquement pour le fruit et la bombe).</li>
 		</ul>
+		<p class="subtitle">À considérer : De l'importance de l'ordre de placement des éléments</p>
+		<p>Un élément peut avoir un comportement différent selon le moment où il a été inséré dans le niveau. Par exemple, si vous positionnez plusieurs trappes de sortie, celles-ci s'ouvriront, l'une après l'autre, dans l'ordre dans lequel vous les avez placées. Si cet ordre ne vous satisfait pas, il vous suffit de sélectionner chaque trappe et de la repositionner.</p>
+		<p>Dans ce cas simple, les conséquences sont anodines mais restent révélatrices d'un comportement dont il faut avoir conscience pour gérer des situations plus complexes.</p>
+		<p>Que se passe-t-il, par exemple, lorsque Tiki arrive à l'intersection de deux aimants respectivement placés de manière à l'attirer vers le haut et vers la gauche ? Autrement dit, Tiki se dirigera-t-il en haut ou à gauche ? La réponse : Tiki ira vers le haut, uniquement si cet aimant a été placé avant celui l'attirant vers la gauche.</p>
+		<p>Si vous souhaitez créer des niveaux complexes et cohérents, l'ordre de placement des éléments doit donc être vérifié et réfléchi.</p>
 	</section>
 	<section name="index_stats">
 		<p class="title">Les Statistiques</p>
@@ -186,12 +192,14 @@
 	<section name="index_credits">
 		<p class="title">Crédits</p>
 		<p>Jeu original créé en février 2005 par <b>yota</b> et <b>bumdum</b> de l'équipe Motion-Twin.</p>
-		<p>Adapté pour un fonctionnement local en octobre 2024 par <b>Toad06</b>, avec quelques autres changements n'affectant pas le gameplay, ainsi que la réécriture de l'aide.</p>
+		<p>Adapté pour un fonctionnement local en octobre 2024 par <b>Toad06</b>, avec quelques autres changements n'affectant pas la jouabilité, ainsi que la réécriture de l'aide.</p>
+		<br />
 		<p class="subtitle">Auteurs des niveaux du mode Aventure</p>
 		<ul>
 			<li>Motion-Twin : 12 premiers niveaux.</li>
-			<li>Toad06</li>
+			<li>Toad06<img src="images/help_illuspictos3_upgraded.jpg" width="290" height="45" /></li>
 		</ul>
+		<br /><br /><br />
 	</section>
 	<section name="index_annex">
 		<p class="title">Annexe : Détails des éléments</p>
@@ -316,7 +324,7 @@
 	<section name="Eye">
 		<p class="subtitle">Le Zoeil</p>
 		<p>Toujours fermé, le Zoeil ne s'ouvre que pour observer les déplacements de l'esprit de Tiki.</p>
-		<p>Si ce dernier se trouve sur la trajectoire horizontale ou verticale du Zoeil, Tiki en paie le prix.</p>
+		<p>Si Tiki ou son esprit se trouve sur la trajectoire horizontale ou verticale du Zoeil ouvert, il en paie inévitablement le prix.</p>
 	</section>
 	<!-- Éléments non disponibles dans l'aide. -->
 	<section name="Ghost">
