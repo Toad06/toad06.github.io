@@ -20,7 +20,7 @@
 	<!-- Aide principale. -->
 	<section name="index">
 		<p class="title">Bienvenue dans JamaJama !</p>
-		<p><img src="images/help_illuspictos1_upgraded.jpg" width="114" height="118" />Au sein de niveaux essentiellement créés par les joueurs, vous devez aider Tiki le petit fantôme à se frayer un chemin jusqu'à la sortie tout en évitant les embûches.</p>
+		<p><img src="images/help_illuspictos1_upgraded.jpg" width="114" height="112" />Au sein de niveaux essentiellement créés par les joueurs, vous devez aider Tiki le petit fantôme à se frayer un chemin jusqu'à la sortie tout en évitant les embûches.</p>
 		<p>Pour apprendre les bases du jeu, la série <i>Premiers pas</i> du mode <i>Aventure</i> est conseillée.<img src="images/help_illuspictos2_upgraded.jpg" width="290" height="30" /></p>
 		<br /><br /><br />
 		<p>Plusieurs sections composent cette aide, n'hésitez pas à les consulter par le biais des boutons ci-dessous.</p>
@@ -307,8 +307,9 @@
 	</section>
 	<section name="Spider">
 		<p class="subtitle">L'araignée</p>
-		<p>Embourbée dans sa toile, l'araignée n'en sort qu'une fois que tous les fruits du niveau ont disparu.</p>
+		<p>Enveloppée dans son cocon, l'araignée n'en sort qu'une fois que tous les fruits du niveau ont disparu.</p>
 		<p>Si un personnage autre que Winkle ou l'esprit de Tiki se trouve sur sa trajectoire horizontale ou verticale, elle n'en fait alors qu'une bouchée.</p>
+		<p>Son intérêt tout particulier pour Tiki peut toutefois lui faire manquer certaines opportunités.</p>
 	</section>
 	<section name="Lurker">
 		<p class="subtitle">Le lurker</p>
